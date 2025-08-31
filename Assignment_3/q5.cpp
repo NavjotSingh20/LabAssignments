@@ -30,10 +30,10 @@ int evaluatePostfix(string exp) {
     return s.pop();
     
 }
-// int main() {
-//     cout<<"enter postfix expression"<<endl;
-//     string expr;
-//     cin>>expr;
-//     cout << "Result: " << evaluatePostfix(expr);
-//     return 0;
-// }
+int main() {
+    cout<<"enter postfix expression"<<endl;
+    string expr;
+    cin>>expr;
+    cout << "Result: " << evaluatePostfix(expr);
+    return 0;
+}
