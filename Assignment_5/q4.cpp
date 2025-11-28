@@ -7,10 +7,10 @@ struct N {
 };
 
 int main() {
-    int a[100], m, k;
+    int m;
     cin >> m;
+    int a[100];
     for (int i = 0; i < m; i++) cin >> a[i];
-    cin >> k;
 
     N* head = NULL, *p, *t;
 
@@ -26,25 +26,18 @@ int main() {
         }
     }
 
-    int c = 0;
-    while (head && head->v == k) {
-        t = head;
-        head = head->n;
-        delete t;
-        c++;
+    N* prev = NULL;
+    N* cur = head;
+    N* nxt;
+
+    while (cur) {
+        nxt = cur->n;
+        cur->n = prev;
+        prev = cur;
+        cur = nxt;
     }
 
-    p = head;
-    while (p && p->n) {
-        if (p->n->v == k) {
-            t = p->n;
-            p->n = p->n->n;
-            delete t;
-            c++;
-        } else p = p->n;
-    }
-
-    cout << c << "\n";
+    head = prev;
 
     p = head;
     while (p) {
@@ -52,4 +45,5 @@ int main() {
         if (p->n) cout << "->";
         p = p->n;
     }
+    cout << "->NULL";
 }
